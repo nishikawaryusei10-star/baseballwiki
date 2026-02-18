@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>室內棒球聯盟｜棒球維基館</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", sans-serif;
+  background: #ffffff;
+  color: #111827;
+  line-height: 1.6;
+}
+
+a {
+  color: #1d4ed8;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ===== 橫幅照片 ===== */
+.banner-photo {
+  width: 100%;
+  height: 320px;
+  background-color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* ===== 頁首 ===== */
+.header {
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.header .sub {
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* ===== 區塊 ===== */
+.section {
+  margin-bottom: 28px;
+}
+
+.section h2 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  border-left: 4px solid #111827;
+  padding-left: 8px;
+}
+
+/* ===== 基本資料 ===== */
+.profile {
+  font-size: 0.95rem;
+}
+
+.profile div {
+  padding: 5px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.profile span {
+  display: inline-block;
+  width: 120px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* ===== 連結不換行 ===== */
+.no-break {
+  white-space: nowrap;
+  font-size: 0.85em;
+}
+
+/* ===== 球隊速查表 ===== */
+table.team {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  font-size: 0.85em;
+}
+
+table.team th,
+table.team td {
+  padding: 6px 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+table.team th {
+  background: #46A3FF;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+table.team tbody tr:nth-child(even) td {
+  background: #ECF5FF;
+}
+
+table.team tbody tr:hover td {
+  background: #dce6f3;
+}
+
+
+/* ===== 年度賽況整體 ===== */
+.season-wrapper {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               "Noto Sans TC", sans-serif;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ===== 十年切換按鈕 ===== */
+.decade-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.decade-tabs button {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.decade-tabs button.active {
+  background: #1f2937;
+  color: #fff;
+  border-color: #1f2937;
+}
+
+/* ===== 十年內容區 ===== */
+.decade-content {
+  display: none;
+}
+
+.decade-content.active {
+  display: block;
+}
+
+/* ===== 年度列表 ===== */
+.season-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.season-list a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #111;
+  background: #fff;
+  font-size: 14px;
+}
+
+.season-list a:hover {
+  background: #f0f4f8;
+  border-color: #999;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- 頁首 -->
+  <div class="header">
+    <h1>室內棒球聯盟</h1>
+    <div class="sub">Indoor Baseball League（IBL）｜室內棒球聯盟</div>
+  </div>
+
+  <!-- 基本資料 -->
+  <div class="section">
+    <h2>基本資料</h2>
+    <div class="profile">
+      <div><span>成立時間</span>2000年</div>
+      <div><span>聯盟性質</span>職業棒球聯盟</div>
+      <div><span>所屬地區</span>台灣</div>
+      <div><span>球隊數量</span>20 隊</div>
+      <div><span>聯盟結構</span>北區／中區／南區／東區</div>
+      <div><span>主要賽制</span>例行賽＋季後賽＋總冠軍賽</div>
+    </div>
+  </div>
+
+  <!-- 聯盟簡介 -->
+  <div class="section">
+    <h2>聯盟簡介</h2>
+室內棒球聯盟（Indoor Professional Baseball League，簡稱IBL），是台灣唯一的職棒聯盟，在國內通稱室棒、室內棒球，該聯盟負責台灣職業棒球聯盟的所有相關事務，同時也擁有一級國際賽（經典賽、12強）的組隊權。</br>
+</br>
+儘管名稱為「室內棒球聯盟」，該聯盟並非所有賽事皆於室內進行，而是源自創立初期對於場地多元化與氣候限制下賽事可行性的構想，象徵聯盟在制度與場館運用上的高度彈性。隨著時代演進，聯盟逐步發展為涵蓋室內與戶外球場並行的完整職業體系。</br>
+</br>
+室內棒球聯盟現行採四大分區制度，分為北區、中區、南區與東區，共計20支球隊，球隊版圖橫跨本島各主要都會與特色區域，並納入具象徵性與制度性意義的特殊球隊，使聯盟在競技層面與敘事層面皆具高度辨識度。</br>
+  </div>
+
+
+<!-- 聯盟歷史 -->
+  <div class="section">
+    <h2>聯盟歷史</h2>
+<strong>台灣棒球熱潮的起源（1980年代）</strong></br>
+1980年代的台灣，正值棒球熱潮席捲全島的時代。紅葉少棒、金龍少棒等學校隊伍在國際賽上屢屢擊敗強敵，讓全台掀起一股「全民棒球」的浪潮。各地球場興建、社區少棒社團興起，棒球幾乎成為台灣的國民運動。</br>
+</br>
+然而，當時台灣尚未建立職業棒球制度，訓練資源與環境有限。多數球員在升上高中、大學後因現實壓力被迫放棄棒球，導致優秀選手大量流失。許多天才投手與強打少年未能在正式舞台上發光，成為那個時代最遺憾的故事。</br>
+</br>
+<strong>職業棒球構想與成立（1993－2000年）</strong></br>
+1993年，時任中華棒協理事長郭景文提出「城市棒球制」構想，希望仿效日本職棒（NPB）與美國職棒（MLB）的架構，建立屬於台灣本土的聯盟體系。他主張以城市為根基、企業為後盾，打造穩定經營的球隊與長期發展的球員制度。</br>
+</br>
+1999年，台北市、新北市、桃園市、台中市、高雄市、台南市六地政府代表與多家企業共同於台北大巨蛋簽署合作條款，正式召開「台灣職業棒球成立大會」。在會中，確立以「室內棒球聯盟（Indoor Professional Baseball League, IBL）」為名的全新職業棒球聯盟架構。</br>
+</br>
+2000年3月，室內棒球聯盟首個賽季正式開打。開幕戰於台北大巨蛋舉行，由「台北天龍隊」對戰「桃園航空隊」，吸引超過三萬名觀眾入場，創下當時國內職棒觀賽新紀錄。這場比賽不僅象徵台灣新職棒時代的開啟，也奠定了IBL作為「城市榮耀聯盟」的定位。自此，「台灣的職業棒球——室內棒球聯盟」正式誕生。</br>
+</br>
+<strong>聯盟擴編與企業化（2005－2019年）</strong></br>
+隨著職棒風潮席捲全台，地方政府與企業紛紛表達參與意願。2005年8月，時任聯盟會長郭景文宣布正式受理各縣市及企業加盟申請。在「一縣市一球隊」的構想推動下，聯盟迅速由原本的6支球隊擴增至12支，此次擴張被後世稱為「第一次球隊擴編事件」。</br>
+</br>
+2014年，聯盟迎來第二次重大擴編。隨著觀眾人數與電視轉播收入創新高，多家企業集團表達加盟意願。台塑集團、全聯實業、宏都建設、台糖公司及大魯閣集團五大企業聯合拜訪聯盟總部，正式申請加入。這次事件被稱為「第二次球隊擴編事件」，也是聯盟歷史上首次出現多家大型財團集體申請入盟的情況。</br>
+</br>
+2019年，聯盟進入穩定發展期，各縣市政府開始重新檢討球團經營模式。雖然多數球隊仍以城市名義參賽，但實際運營仍仰賴公部門補助，造成財務負擔沉重。最終，各地方政府決議將球團經營權全面下放給企業，由企業全權負責營運、招募與品牌推廣。</br>
+2021年，崩壞娛樂集團與離島聯合政府向聯盟提出加盟申請，通過審核後，崩壞自由隊與離島聯隊正式加入聯盟。此舉標誌IBL正式邁入「完全公司化」時代，提升球隊經營效率，也使地方政府能將資源集中於基層棒球發展。</br>
+</br>
+<strong>國軍球隊的成立與服役制度（2021－2024）</strong></br>
+2024年，台灣的役期制度規定2005年後出生的所有男性公民須服義務役一年。此時，職棒球員在服役期間往往中斷球員生涯訓練，導致球隊陣容斷層、選手養成受阻。這項制度問題長期困擾著室內棒球聯盟。當時，聯盟會長陳慶昇與體育署、國防部多次協商，最終達成共識：在不影響軍事訓練與國防紀律的前提下，由國防部正式成立一支軍方直屬球隊，以「服役球員為主體」，代表國軍參加IBL例行賽。同年10月，「國軍服役隊（Military Service Team）」正式成立，成為室內棒球聯盟的第20支球隊。</br>
+</br>
+<strong>兩聯盟制嘗試（2027－2032）</strong></br>
+2027年，室內棒球聯盟球隊數量來到20支，規模空前。隨著聯盟版圖擴大、例行賽賽程過密與旅途負擔沉重等問題日益嚴重，聯盟高層開始思考制度改革。當年召開的「體制改革特別會議」中，聯盟首次提出參考美、日職棒的「兩聯盟制構想」。</br>
+</br>
+依據方案，聯盟自2028年球季起分為兩個聯盟：北方聯盟，主要以北部與中部城市球隊為主。南方聯盟，以南部與外島球隊為主。</br>
+
+例行賽採140場制，其中跨聯盟對戰約占15%。兩聯盟分別產生冠軍，季後再舉辦「台灣大賽（Taiwan Series）」爭奪年度總冠軍。該制度也帶來多項革新，包括：全明星賽改為「北方vs 南方」對抗賽、獎項分開評選、跨聯盟交流賽正式常態化。</br>
+</br>
+初期制度帶來熱烈迴響，球迷對「北方－南方對抗」充滿新鮮感，收視率短暫提升。但隨著時間推進，問題逐漸浮現：兩聯盟實力失衡──太平洋聯盟部分企業球隊實力雄厚，導致冠軍長期由少數球隊壟斷、轉播與賽程複雜度增加──跨聯盟賽事調度困難，部分城市球迷抱怨「主場場次太少」、年度獎項分開評選引發爭議──同職位球員表現難以橫向比較，削弱聯盟整體榮譽感。</br>
+</br>
+最終在2032年，聯盟召開特別會議決議終止兩聯盟制，恢復為單一聯盟運作架構。此舉被媒體稱為「兩聯盟五年實驗」，成為聯盟歷史上一段短暫而具象徵性的改革時期。</br>
+
+</br>
+<strong>分區制度與球隊更名（2033－2039）</strong></br>
+2033年，崩壞自由隊改名為中國淪陷者隊，因名稱帶有政治或爭議性，聯盟要求更名。球隊老闆拒絕更改。此時，苗栗石虎隊提出加盟申請。聯盟評估後，認為此為提升競爭平衡與穩定聯盟發展的機會，於是決定「適時、藉機」撤銷中國淪陷者隊的加盟資格，將其剔除出一軍。此舉既解決爭議球隊問題，也為新加盟球隊騰出名額，聯盟整體運作得以順利過渡。</br>
+
+2034年，聯盟決議將現有球隊分為四個分區，並修正例行賽及季後賽相關規定，2035年正式實施分區制度，進一步規範聯盟競賽結構。</br>
+</br>
+<strong>近代發展（2040－現今）</strong></br>
+隨著聯盟進入成熟期，國軍服役隊逐漸面臨體制瓶頸。雖然該隊自2024年成立以來，成功解決了職棒球員服役與生涯銜接的問題，但其組成方式——由各球隊派遣服役球員臨時組軍一年——也導致戰力長期不穩。到了2047年，國軍服役隊戰績長年墊底，且無法參與年度選秀、無權延攬外援，球團營運架構與其他球隊差距越來越大。部分聯盟高層開始討論是否該裁撤或轉型該球隊，讓聯盟整體競爭更平衡。</br>
+</br>
+就在聯盟評估國軍隊去留的同時，台灣中油股份有限公司董事長陳國梁表達加盟聯盟的強烈意願。中油長期贊助國內各項運動，且擁有雄厚的資金與品牌影響力。2048年初，聯盟正式收到中油遞交的加盟申請書，內容包含完整營運計畫、主場興建構想。
+</br>
+</br>
+經過近一年的審查、協調與會議，中油最終於2049年2月獲得聯盟核准加盟資格，並宣布成立新球隊——中油火焰隊（CPC Flames）。</br>
+同年6月，IBL召開年度領隊會議，通過一項歷史性決議：自2052賽季起，國軍服役隊將自一軍名單中除名、轉為二軍培訓與服役訓練性質球隊；其一軍席位由新成立的「中油火焰隊」取代。</br>
+
+</div>
+
+  <!-- 聯盟制度 -->
+  <div class="section">
+    <h2>聯盟制度</h2>
+</br>
+<strong>例行賽賽程</strong></br> 
+目前室內棒球聯盟總共有20隊，並分為4區。例行賽各隊與同分區內其他球隊各交手15場；與不同分區的球隊各交手6場，共進行150場例行賽。賽季約從3月底開始進行至10月初。</br>
+</br>
+<div class="no-break">
+延伸閱讀：<a href="#">歷年室內棒球聯盟詳細賽制</a></br>
+</div>
+</br>
+<strong>季後賽賽制</strong></br>
+室內棒球聯盟季後賽採8隊制。例行賽結束後，由四個分區的分區冠軍與全聯盟戰績最佳的四支非分區冠軍球隊晉級季後賽。分區冠軍僅保證晉級資格，季後賽種子排序仍以例行賽戰績為主要依據。</br>
+</br>
+季後賽首輪由八支球隊進行對戰，依照種子順位進行配對，高順位球隊享有主場優勢。首輪採三戰兩勝制，勝隊晉級下一輪。</br>
+四支晉級球隊進入聯盟準決賽，採五戰三勝制，同樣由例行賽戰績較佳者取得主場優勢。此階段開始更重視投手輪值深度與整體戰術執行能力。</br>
+聯盟準決賽勝出的兩支球隊進入台灣大賽，亦即總冠軍賽。總冠軍賽採七戰四勝制，主場配置依例行賽戰績決定，勝隊為該年度室內棒球聯盟總冠軍。</br>
+</br>
+<div class="no-break">
+延伸閱讀：<a href="#">歷年室內棒球聯盟季後賽詳細賽制</a></br>
+</div>
+</br>
+<strong>年度會議</strong></br>
+室內棒球聯盟年度會議是室內棒球聯盟用以決定聯盟制度、競賽規則與營運方向的正式決策機制。聯盟每年固定召開兩次會議，分別為春季會議與冬季會議。春季會議主要負責確立新球季即時生效的制度與規定；冬季會議則著重於前一球季的檢討與未來發展方向之規劃，為下一年度的制度調整奠定基礎。</br>
+</br>
+<div class="no-break">
+延伸閱讀：<a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1BeCEUtcVL54M7ZcnSbieYE4BMe3FhxqP/edit">室內棒球聯盟年度會議</a></br>
+</div>
+</br>
+<strong>新人選秀會</strong></br>
+室內棒球聯盟新人選秀會為新人進入室內棒球聯盟最重要的管道之一。為了配合台灣學制，因此在每年6月底7月初舉辦新人選秀會，擁有資格的新人可依據規定報名選秀。</br>
+</br>
+<div class="no-break">
+延伸閱讀：<a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1V_nrrPAnPgxNHfi0mSDHEo5Yug4sJ6HC/edit">室內棒球聯盟新人選秀會</a></br>
+</div>
+</br>
+
+<strong>國家隊</strong></br>
+自2031年起，國家棒球代表隊採公司化制度，將國家隊常態化，由室內棒球聯盟旗下子公司Taiwan Brave Bears sport以及中華棒協共同營運。國家棒球隊有自己的品牌及商標，代表隊的教練、組訓人員大多來自室內棒球聯盟的教練。</br>
+</br>
+<div class="no-break">
+延伸閱讀：<a href="#">棒球國家隊公司化</a></br>
+</br>
+</div>
+</br>
+
+  </div>
+
+  <!-- 聯盟球隊 -->
+  <div class="section">
+    <h2>聯盟球隊</h2>
+    北區
+    <table class="team">
+    <thead>
+      <tr>
+        <th>球隊</th>
+        <th>所屬地區</th>
+        <th>主場</th>
+        <th>起始年份</th>
+        <th>分區冠軍</th>
+        <th>台灣大賽冠軍</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td><a href="#">味全天龍隊</a></td> 
+        <td>臺北市天母區</td>
+        <td><a href="#">臺北市天母棒球場</a></td> 
+        <td>2000年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#">全聯熊隊</a></td> 
+        <td>新北市汐止區</td>
+        <td><a href="#">PX BEAR BASEBALL PARK</a></td> 
+        <td>2018年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#">富邦守護者隊</a></td> 
+        <td>新北市新莊區</td>
+        <td><a href="#">新北市新莊棒球場</a></td> 
+        <td>2000年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#">樂天桃猿隊</a></td> 
+        <td>桃園市中壢區</td>
+        <td><a href="#">中壢球場</a></td> 
+        <td>2000年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#">竹科工程師隊</a></td> 
+        <td>新竹市東區</td>
+        <td><a href="#">竹科棒球園區</a></td> 
+        <td>2017年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      </tbody>
+      </table>
+    </br>
+    
+    中區
+    <table class="team">
+    <thead>
+      <tr>
+        <th>球隊</th>
+        <th>所屬地區</th>
+        <th>主場</th>
+        <th>起始年份</th>
+        <th>分區冠軍</th>
+        <th>台灣大賽冠軍</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td><a href="#">中信子彈隊</a></td>   
+        <td>臺中市北屯區</td>
+        <td><a href="#">台中市立洲際棒球場</a></td> 
+        <td>2000年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#">北鐵狼隊</a></td>   
+        <td>彰化縣彰化市</td>
+        <td><a href="#">彰化小巨蛋</a></td> 
+        <td>2005年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#">南投雷霆隊</a></td>   
+        <td>南投縣竹山鎮</td>
+        <td><a href="#">杉林溪球場</a></td> 
+        <td>2018年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#">苗栗石虎隊</a></td>  
+        <td>苗栗縣苗栗市</td>
+        <td><a href="#">石虎紀念棒球場</a></td>  
+        <td>2019年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#">台糖巨人隊</a></td>  
+        <td>雲林縣北港鎮</td>
+        <td><a href="#">甘蔗棒球場</a></td>
+        <td>2018年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      </tbody>
+      </table>
+      </br>
+    
+    南區
+    <table class="team">
+    <thead>
+      <tr>
+        <th>球隊</th>
+        <th>所屬地區</th>
+        <th>主場</th>
+        <th>起始年份</th>
+        <th>分區冠軍</th>
+        <th>台灣大賽冠軍</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td><a href="#">統一猛獅隊</a></td>
+        <td>臺南市南區</td>
+        <td><a href="#">亞太園區棒球場</a></td>
+        <td>2000年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#">台鋼巨鷹隊</a></td>
+        <td>高雄市三民區</td>
+        <td><a href="#">天鷹紀念球場</a></td>
+        <td>2000年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#">阿里山小火車隊</a></td>
+        <td>嘉義縣阿里山鄉</td>
+        <td><a href="#">阿里山球場</a></td>
+        <td>2017年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#">南亞炫風隊</a></td>
+        <td>高雄市鳳山區</td>
+        <td><a href="#">高雄超級巨蛋</a></td>
+        <td>2018年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#">墾丁鯊魚隊</a></td>
+        <td>屏東縣恆春鎮</td>
+        <td><a href="#">海底世界棒球場</a></td>
+        <td>2021年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      </tbody>
+      </table>  
+    </br>
+    東區
+    <table class="team">
+    <thead>
+      <tr>
+        <th>球隊</th>
+        <th>所屬地區</th>
+        <th>主場</th>
+        <th>起始年份</th>
+        <th>分區冠軍</th>
+        <th>台灣大賽冠軍</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td><a href="#">基隆雨都隊</a></td>
+        <td>基隆市安樂區</td>
+        <td><a href="#">基隆小巨蛋</a></td>
+        <td>2021年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#">台東鋼鐵人隊</a></td>
+        <td>台東縣台東市</td>
+        <td><a href="#">鋼彈玩具球場</a></td>
+        <td>2006年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#">花蓮眼鏡蛇隊</a></td>
+        <td>花蓮縣鳳林鎮</td>
+        <td><a href="#">花蓮棒球場</a></td>
+        <td>2018年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#">中油火焰隊</a></td>
+        <td>宜蘭縣羅東鎮</td>
+        <td><a href="#">三星蔥紀念球場</a></td>
+        <td>2051年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#">奇醫海燕隊</a></td>
+        <td>澎湖縣馬公市</td>
+        <td><a href="#">海燕球場</a></td>
+        <td>2050年</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      </tbody>
+      </table>      
+      
+      
+      
+    </div>  
+
+  <!-- 聯盟歷史 -->
+  <div class="section">
+    <h2>聯盟歷史</h2>
+    <div class="timeline">
+      <div><b>2000</b> 室內棒球聯盟正式成立</div>
+      <div><b>2027</b> 實施雙聯盟制度（北方／南方）</div>
+      <div><b>2032</b> 雙聯盟制度結束，回歸單一聯盟</div>
+      <div><b>2051</b> 聯盟邁入第 52 個賽季</div>
+    </div>
+  </div>
+
+ <!-- 聯盟年度賽況 -->
+  <div class="section">
+    <h2>聯盟歷年賽況</h2>
+
+<div class="season-wrapper">
+  以下為各年室內棒球聯盟賽況，請點選進行查詢：</br>
+  </br>
+  <!-- 十年切換 -->
+  <div class="decade-tabs">
+    <button class="active" onclick="showDecade('2000s')">2000–2009</button>
+    <button onclick="showDecade('2010s')">2010–2019</button>
+    <button onclick="showDecade('2020s')">2020–2029</button>
+    <button onclick="showDecade('2030s')">2030–2039</button>
+    <button onclick="showDecade('2040s')">2040–2049</button>
+    <button onclick="showDecade('2050s')">2050–2059</button>
+  </div>
+
+  <!-- 2000–2009 -->
+  <div id="2000s" class="decade-content active">
+    <div class="season-list">
+      <a href="#">2000年</a>
+      <a href="#">2001年</a>
+      <a href="#">2002年</a>
+      <a href="#">2003年</a>
+      <a href="#">2004年</a>
+      <a href="#">2005年</a>
+      <a href="#">2006年</a>
+      <a href="#">2007年</a>
+      <a href="#">2008年</a>
+      <a href="#">2009年</a>
+    </div>
+  </div>
+
+  <!-- 2010–2019 -->
+  <div id="2010s" class="decade-content">
+    <div class="season-list">
+      <a href="#">2010年</a>
+      <a href="#">2011年</a>
+      <a href="#">2012年</a>
+      <a href="#">2013年</a>
+      <a href="#">2014年</a>
+      <a href="#">2015年</a>
+      <a href="#">2016年</a>
+      <a href="#">2017年</a>
+      <a href="#">2018年</a>
+      <a href="#">2019年</a>
+    </div>
+  </div>
+
+  <!-- 2020–2029 -->
+  <div id="2020s" class="decade-content">
+    <div class="season-list">
+      <a href="#">2020年</a>
+      <a href="#">2021年</a>
+      <a href="#">2022年</a>
+      <a href="#">2023年</a>
+      <a href="#">2024年</a>
+      <a href="#">2025年</a>
+      <a href="#">2026年</a>
+      <a href="#">2027年</a>
+      <a href="#">2028年</a>
+      <a href="#">2029年</a>
+    </div>
+  </div>
+
+  <!-- 2030–2039 -->
+  <div id="2030s" class="decade-content">
+    <div class="season-list">
+      <a href="#">2030年</a>
+      <a href="#">2031年</a>
+      <a href="#">2032年</a>
+      <a href="#">2033年</a>
+      <a href="#">2034年</a>
+      <a href="#">2035年</a>
+      <a href="#">2036年</a>
+      <a href="#">2037年</a>
+      <a href="#">2038年</a>
+      <a href="#">2039年</a>
+    </div>
+  </div>
+
+  <!-- 2040–2049 -->
+  <div id="2040s" class="decade-content">
+    <div class="season-list">
+      <a href="#">2040年</a>
+      <a href="#">2041年</a>
+      <a href="#">2042年</a>
+      <a href="#">2043年</a>
+      <a href="#">2044年</a>
+      <a href="#">2045年</a>
+      <a href="#">2046年</a>
+      <a href="#">2047年</a>
+      <a href="#">2048年</a>
+      <a href="#">2049年</a>
+    </div>
+  </div>
+
+  <!-- 2050–2059 -->
+  <div id="2050s" class="decade-content">
+    <div class="season-list">
+      <a href="#">2050年</a>
+      <a href="#">2051年</a>
+      <a href="#">2052年</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function showDecade(decadeId) {
+  document.querySelectorAll('.decade-content').forEach(d => {
+    d.classList.remove('active');
+  });
+  document.querySelectorAll('.decade-tabs button').forEach(b => {
+    b.classList.remove('active');
+  });
+
+  document.getElementById(decadeId).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+
+</div>
+</div>
+
+
+</body>
+</html>
