@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>室內棒球聯盟｜年度金手套獎</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", sans-serif;
+  background: #ffffff;
+  color: #111827;
+  line-height: 1.6;
+}
+
+a {
+  color: #1d4ed8;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-bottom: 80px; /* 關鍵 */
+}
+
+html, body {
+  height: auto;
+  overflow-y: auto;
+}
+
+/* ===== 頁首 ===== */
+.header {
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.header .sub {
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* ===== 區塊 ===== */
+.section {
+  margin-bottom: 28px;
+}
+
+.section h2 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  border-left: 4px solid #111827;
+  padding-left: 8px;
+}
+
+/* ===== 歷年金手套表格 ===== */
+.award-container {
+  margin: 1em 0;
+}
+
+select, input[type="number"] {
+  padding: 4px 6px;
+  margin-right: 0.5em;
+  font-size: 13px;
+}
+
+table.stats {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  font-size: 0.85em;
+}
+
+table.stats th,
+table.stats td {
+  padding: 6px 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+table.stats th {
+  background: #FFDC35;
+  color: #000;
+  font-weight: 600;
+}
+
+table.stats tbody tr:nth-child(even) td {
+  background: #FFF8D7;
+}
+
+table.stats tbody tr:hover td {
+  background: #dce6f3;
+}
+
+.best {
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+.test {
+  font-weight: bold;
+  color: #FF0000;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+@media(max-width: 600px) {
+  table.stats th, table.stats td {
+    font-size: 10px;
+    padding: 2px 4px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <!-- 頁首 -->
+  <div class="header">
+    <h1>室內棒球聯盟年度金手套獎</h1>
+    <div class="sub">Golden Glove Award｜室內棒球聯盟</div>
+  </div>
+
+  <!-- 簡介 -->
+  <div class="section">
+    <h2>獎項簡介</h2>
+    室內棒球聯盟金手套獎為每年度頒發給各守備位置守備表現最佳的球員，依守備數據及教練評選綜合決定。獲獎球員可在年度頒獎典禮中獲得獎座及獎金。
+  </div>
+
+  <!-- 歷年金手套名單 -->
+  <div class="section">
+    <h2>歷年得獎球員</h2>
+
+    <div class="award-container">
+      <label for="year-select">選擇年份：</label>
+      <select id="year-select" onchange="showYear()">
+        <script>
+          for(let y=2051; y>=2000; y--){
+            document.write(`<option value="${y}">${y} 年</option>`);
+          }
+        </script>
+      </select>
+
+      <label for="year-search">搜尋年份：</label>
+      <input type="number" id="year-search" min="2000" max="2051" placeholder="輸入年份">
+      <button onclick="searchYear()">搜尋</button>
+
+      <div id="award-tables">
+
+        <!-- 2051 年示範表格 -->
+        <table class="stats" id="award-2051">
+          <thead>
+            <tr>
+              <th>守備位置</th>
+              <th>球員</th>
+              <th>所屬隊伍</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>投手</td>
+              <td><a href="#player1">莊昕晨</a></td>
+              <td>味全天龍</td>
+            </tr>
+            <tr>
+              <td>捕手</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+            
+            <tr>
+              <td>一壘手</td>
+              <td><a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1KLPDrBFJvTeoUip6y9rNYFaJWtukoxIe/edit">李政宇</a></td>
+              <td>統一猛獅</td>
+            </tr>
+            
+            <tr>
+              <td>二壘手</td>
+              <td><a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1auAHh0754lEO5RLFJ-5OIXBRVU3NXyEu/edit">林佳恩</a></td>
+              <td>富邦守護者</td>
+            </tr>
+            
+            <tr>
+              <td>游擊手</td>
+              <td><a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1wm0pRm1RGSuTYVEm2Eye6-XiNTgcSwNN/edit">余宥達</a></td>
+              <td>北鐵狼</td>
+            </tr>
+            
+            <tr>
+              <td>三壘手</td>
+              <td><a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1pAJkuWH8QKGnWGT_UH3LZN-NsIJAGcOg/edit">林澤安</a></td>
+              <td>南投雷霆</td>
+            </tr>
+            
+            <tr>
+              <td>外野手</td>
+              <td><a href="#player7">郭哲安</a></td>
+              <td>樂天桃猿</td>
+            </tr>
+            <tr>
+              <td>外野手</td>
+              <td><a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1meYFxY11TbOqisJjgxEgqhlyStozkgc_/edit">金在勳</a></td>
+              <td>花蓮眼鏡蛇</td>
+            </tr>
+            <tr>
+              <td>外野手</td>
+              <td><a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1ukjkIiHAc73dmf98uudEXuHQHsvpHEbY/edit">羅以翔</a></td>
+              <td>阿里山小火車</td>
+            </tr>
+            <tr>
+              <td>工具人</td>
+              <td><a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1qr-cMQb4XUiQaxPNJGlEaRJaBwCfmWQi/edit">阿華田∙米烙</a></td>
+              <td>北鐵狼</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 後續年份可新增表格 -->
+        <table class="stats" id="award-2050" style="display:none;">
+        <thead>
+            <tr>
+              <th>守備位置</th>
+              <th>球員</th>
+              <th>所屬隊伍</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>投手</td>
+              <td><a href="#player1">林尚軒</a></td>
+              <td>中信子彈</td>
+            </tr>
+            <tr>
+              <td>捕手</td>
+              <td><a href="#player2">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>一壘手</td>
+              <td><a href="#player3">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>二壘手</td>
+              <td><a href="--">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>游擊手</td>
+              <td><a href="--">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>三壘手</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+            
+            <tr>
+              <td>外野手</td>
+              <td><a href="../player/YANG,TING-AN.html">楊庭安</a></td>
+              <td>基隆雨都</td>
+            </tr>
+            <tr>
+              <td>外野手</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>外野手</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>工具人</td>
+              <td><a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1XTmor4kp2iRgS-7utMney15L5T0nZEND/edit">鄭智軒</a></td>
+              <td>台鋼巨鷹</td>
+            </tr>
+          </tbody>
+        </table>    
+        
+        <table class="stats" id="award-2049" style="display:none;">
+        <thead>
+            <tr>
+              <th>守備位置</th>
+              <th>球員</th>
+              <th>所屬隊伍</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>投手</td>
+              <td><a href="#player1">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>捕手</td>
+              <td><a href="#player2">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>一壘手</td>
+              <td><a href="#player3">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>二壘手</td>
+              <td><a href="--">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>游擊手</td>
+              <td><a href="--">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>三壘手</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+            
+            <tr>
+              <td>外野手</td>
+              <td><a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1GSumQRMsKA_yHHs33yZOgY7DauIsQVCc/edit">何仁峻</a></td>
+              <td>北鐵狼</td>
+            </tr>
+            
+            <tr>
+              <td>外野手</td>
+              <td><a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1C-kNTKwn4Tgiz_QUJdkbb5ZI2HS6LVGa/edit">林昱傑</a></td>
+              <td>中信子彈</td>
+            </tr>
+            
+            <tr>
+              <td>外野手</td>
+              <td><a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1fEsQCpXYiWfvda1ENM15w79GDz1P_Kcu/edit">李小亨</a></td>
+              <td>花蓮眼鏡蛇</td>
+            </tr>
+            
+            <tr>
+              <td>工具人</td>
+              <td><a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1p2rVQgi2DnbyNGDHmH-OLWKS30tZ-DFn/edit">林聖平</a></td>
+              <td>南投雷霆</td>
+            </tr>
+            
+          </tbody>
+        </table>
+        
+        <table class="stats" id="award-2048" style="display:none;">
+        <thead>
+            <tr>
+              <th>守備位置</th>
+              <th>球員</th>
+              <th>所屬隊伍</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>投手</td>
+              <td><a href="#player1">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>捕手</td>
+              <td><a href="#player2">-</a></td>
+              <td>-</td>
+            </tr>
+            
+            <tr>
+              <td>一壘手</td>
+              <td><a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1KLPDrBFJvTeoUip6y9rNYFaJWtukoxIe/edit">李政宇</a></td>
+              <td>統一猛獅</td>
+            </tr>
+            
+            <tr>
+              <td>二壘手</td>
+              <td><a href="--">-</a></td>
+              <td>-</td>
+            </tr>
+            
+            <tr>
+              <td>游擊手</td>
+              <td><a href="--">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>三壘手</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+            
+            <tr>
+              <td>外野手</td>
+              <td><a href="#player7">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>外野手</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>外野手</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>工具人</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <table class="stats" id="award-2047" style="display:none;">
+        <thead>
+            <tr>
+              <th>守備位置</th>
+              <th>球員</th>
+              <th>所屬隊伍</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>投手</td>
+              <td><a href="#player1">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>捕手</td>
+              <td><a href="#player2">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>一壘手</td>
+              <td><a href="#player3">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>二壘手</td>
+              <td><a href="--">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>游擊手</td>
+              <td><a href="--">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>三壘手</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+            
+            <tr>
+              <td>外野手</td>
+              <td><a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1sR3jJ6rI5vUNVIgJeikIusHUOP3eE6AU/edit">周啟宏</a></td>
+              <td>苗栗石虎</td>
+            </tr>
+            <tr>
+              <td>外野手</td>
+              <td><a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1GSumQRMsKA_yHHs33yZOgY7DauIsQVCc/edit">何仁峻</a></td>
+              <td>北鐵狼</td>
+            </tr>
+            <tr>
+              <td>外野手</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>工具人</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <table class="stats" id="award-2044" style="display:none;">
+        <thead>
+            <tr>
+              <th>守備位置</th>
+              <th>球員</th>
+              <th>所屬隊伍</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>投手</td>
+              <td><a href="#player1">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>捕手</td>
+              <td><a href="#player2">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>一壘手</td>
+              <td><a href="#player3">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>二壘手</td>
+              <td><a href="--">-</a></td>
+              <td>-</td>
+            </tr>
+            
+            <tr>
+              <td>游擊手</td>
+              <td><a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1p2rVQgi2DnbyNGDHmH-OLWKS30tZ-DFn/edit">林聖平</a></td>
+              <td>全聯熊</td>
+            </tr>
+            
+            <tr>
+              <td>三壘手</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+            
+            <tr>
+              <td>外野手</td>
+              <td><a href="#player7">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>外野手</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>外野手</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>工具人</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        
+        <table class="stats" id="award-2042" style="display:none;">
+        <thead>
+            <tr>
+              <th>守備位置</th>
+              <th>球員</th>
+              <th>所屬隊伍</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>投手</td>
+              <td><a href="#player1">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>捕手</td>
+              <td><a href="#player2">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>一壘手</td>
+              <td><a href="#player3">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>二壘手</td>
+              <td><a href="--">-</a></td>
+              <td>-</td>
+            </tr>
+            
+            <tr>
+              <td>游擊手</td>
+              <td><a href="https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1p2rVQgi2DnbyNGDHmH-OLWKS30tZ-DFn/edit">林聖平</a></td>
+              <td>全聯熊</td>
+            </tr>
+            
+            <tr>
+              <td>三壘手</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+            
+            <tr>
+              <td>外野手</td>
+              <td><a href="#player7">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>外野手</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>外野手</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>工具人</td>
+              <td><a href="-">-</a></td>
+              <td>-</td>
+            </tr>
+            
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function showYear(){
+  let year = document.getElementById('year-select').value;
+  document.querySelectorAll('#award-tables table').forEach(tbl=>{
+    tbl.style.display = (tbl.id==='award-'+year) ? '' : 'none';
+  });
+  document.getElementById('year-search').value = year;
+}
+
+function searchYear(){
+  let year = document.getElementById('year-search').value;
+  if(year < 2000 || year > 2051){ alert('年份範圍：2000~2051'); return; }
+  document.getElementById('year-select').value = year;
+  showYear();
+}
+
+// 預設顯示最新年份
+showYear();
+</script>
+
+</body>
+</html>
