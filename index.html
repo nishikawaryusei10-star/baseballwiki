@@ -211,69 +211,8 @@
   <!-- ==== JS 搜尋功能 ==== -->
   <script>
     const searchData = [
-      { title: "周敬倫", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1XNE9OyhpL7Ec2TSeNawkXz_CI5AiC_cC/edit", tag: "台灣球員｜味全天龍" },
+      { title: "楊庭安", url: "players/YANG,TING-AN.html", tag: "台灣球員｜基隆雨都" },
       
-      { title: "林侑承", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1UnppHKjY0DcPnAzb4wG3n4SmlddN4bao/edit", tag: "台灣球員｜全聯熊" },
-      
-      { title: "邱家濬", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1-9mShF6K5irXzqcYfGoC-qQaOmPoFm4V/edit", tag: "台灣球員｜全聯熊" },
-      
-      { title: "辛棄湲", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1psiovRoMD1qgkXlW2Tv9G_N19hvyGorE/edit", tag: "台灣球員｜富邦守護者" },
-      
-      { title: "郭宸佑", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1moDwRTq5TjL14MEQysG6-_n-mogLvj3i/edit", tag: "台灣球員｜富邦守護者" },
-      
-       { title: "Jakub Novák", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1--zJ7WHDXIpnhzew5m5y57nU_DVSQICc/edit", tag: "捷克球員｜樂天桃猿" },
-      
-      { title: "林佳恩", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1auAHh0754lEO5RLFJ-5OIXBRVU3NXyEu/edit", tag: "台灣球員｜北鐵狼" },
-      
-      { title: "阿華田・米烙", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1qr-cMQb4XUiQaxPNJGlEaRJaBwCfmWQi/edit", tag: "台灣球員｜北鐵狼" },
-      
-      { title: "宋昌紘", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1LjGIubmJY3betPclPunAzOrrXZDXxTXv/edit", tag: "台灣球員｜北鐵狼" },
-      
-      { title: "許景成", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1gSNEtIiZBe7w4GT4pJKHsfni6yfVYFMV/edit", tag: "台灣球員｜南投雷霆" },
-      
-      { title: "林澤安", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1pAJkuWH8QKGnWGT_UH3LZN-NsIJAGcOg/edit", tag: "台灣球員｜南投雷霆" },
-      
-       { title: "李俊洺", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1WU7rkdvtY8XzlL4j2o-GNuMAExuawtZO/edit", tag: "台灣球員｜南投雷霆" },
-      
-      { title: "杜霆睿", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1ymqoX8CWrKSGaX5BBf5Dc5S3mtO2fSfx/edit", tag: "台灣球員｜中信子彈" },
-      
-      { title: "羅以翔", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1ukjkIiHAc73dmf98uudEXuHQHsvpHEbY/edit", tag: "台灣球員｜阿里山小火車" },
-      
-      { title: "周敬祐", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1alVDdg4UZcWPdl_lNxrP1pqdfFWPFlH4/edit", tag: "台灣球員｜墾丁鯊魚" },
-      
-      { title: "張庭睿", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1JNIOmkqCD7BATiYCu0-QcH2knvsNFOYs/edit", tag: "台灣球員｜台鋼巨鷹" },
-      
-      { title: "游仕堯", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1kEiVa9dQOvRO-miuyqJdqmwTXji0gaIc/edit", tag: "台灣球員｜台鋼巨鷹" },
-      
-      { title: "余宥達", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1wm0pRm1RGSuTYVEm2Eye6-XiNTgcSwNN/edit", tag: "台灣球員｜奇醫海燕" },
-      
-      { title: "林聖平", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1fEsQCpXYiWfvda1ENM15w79GDz1P_Kcu/edit", tag: "台灣球員｜奇醫海燕" },
-      
-       { title: "李小亨", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1fEsQCpXYiWfvda1ENM15w79GDz1P_Kcu/edit", tag: "台灣球員｜花蓮眼鏡蛇" },
-      
-      { title: "金在勳", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1meYFxY11TbOqisJjgxEgqhlyStozkgc_/edit", tag: "韓國球員｜花蓮眼鏡蛇" },
-
-      { title: "林昱傑", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1C-kNTKwn4Tgiz_QUJdkbb5ZI2HS6LVGa/edit", tag: "台灣球員｜舊金山巨人隊" },
-      
-      { title: "王彥翔", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1rIjYrXH7ck2kbGFAyjtLe0utPSsmylNx/edit", tag: "台灣球員｜辛辛那提紅人隊" },
-      
-      { title: "2051 室內棒球聯盟季後賽", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1LLs80rgU3ZeCdajqsWyjQZpJAaxSp6QD/edit", tag: "賽事" },
-      
-      { title: "室內棒球聯盟年度全壘打王", url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1Y9hmAOVrKMkvZghjvc8zWX6gKSkWQ_uf/edit", tag: "年度獎項｜室內棒球聯盟" },
-      
-      { title: "室內棒球聯盟年度新人王", 
-      url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1Y9hmAOVrKMkvZghjvc8zWX6gKSkWQ_uf/edit", tag: "年度獎項｜室內棒球聯盟" },
-      
-      { title: "室內棒球聯盟年度金手套獎", 
-      url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/1eyPL2gcRQzufO__yJY2tqncAhy2aP7ml/edit", tag: "年度獎項｜室內棒球聯盟" },
-      
-      { title: "室內棒球聯盟新人選秀會", 
-      url: "https://sites.google.com/d/1-WtcvXz0dqq-lOlDVX6n0akF6zWH3x4c/p/17tJYYf8a8t77ff08URYHa3DNS383GfaH/edit", tag: "國內活動｜職棒選秀" },
-      
-      
-      
-      { title: "彰化高中青棒隊", url: "#", tag: "國內球隊｜青棒球隊" },
-      { title: "平鎮高中青棒隊", url: "#", tag: "國內球隊｜青棒球隊" }
     ];
 
     const suggestions = [
