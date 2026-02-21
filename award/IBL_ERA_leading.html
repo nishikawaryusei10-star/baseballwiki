@@ -26,17 +26,25 @@ a:hover { text-decoration: underline; }
   padding: 20px;
 }
 
-/* ===== 橫幅照片 ===== */
-.banner-photo {
-  width: 100%;
-  height: 320px;
-  background-color: #e5e7eb;
+/* ===== 導覽頁面 ===== */
+/* ===== 頂部導覽列 ===== */
+.topnav {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #6b7280;
-  font-size: 1.2rem;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
   margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.topnav a {
+  color: #374151;
+  font-weight: 500;
+}
+
+.topnav a:hover {
+  color: #1d4ed8;
+}
 }
 
 /* ===== 頁首 ===== */
@@ -205,6 +213,10 @@ table.state tbody tr:hover td {
 <body>
 
 <div class="container">
+
+  <nav class="topnav">
+  <a href="../index.html">首頁</a> ⮕ <a href="../award/IBL_award_overview.html">室內棒球聯盟年度獎項</a> ⮕ <b>年度防禦率王</b>
+  </nav>
 
   <!-- 頁首 -->
   <div class="header">
